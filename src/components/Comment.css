@@ -1,0 +1,17 @@
+.comment {
+  position: absolute;
+  white-space: nowrap;
+  animation: commentFlow 10s linear;
+  width: 100%;
+  font-size: xx-large;
+  background: green;
+}
+
+@keyframes commentFlow {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}

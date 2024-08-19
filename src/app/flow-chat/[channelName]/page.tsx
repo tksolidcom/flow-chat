@@ -19,7 +19,7 @@ export default function Page({ params }: { params: { channelName: string } }) {
       color: string;
     }[]
   >([]);
-  const [selectedColor, setSelectedColor] = useState('#000000');
+  const [selectedColor, setSelectedColor] = useState('#ffffff');
 
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setChatContent(event.target.value);

@@ -14,13 +14,21 @@ const channels = new Channels({
 export async function POST(request: NextRequest) {
   try {
     const data = await request.json();
-    if (100 < data.chatContent.length) {
+    const { chatContent, color } = data;
+
+    if (100 < chatContent.length) {
       return NextResponse.json(
         { result: false, error: '100文字以上です' },
         { status: 400 }
       );
     }
-    await channels.trigger(data.channel, 'chat', data.chatContent);
+
+    // チャット内容とカラー情報を一緒に送信
+    await channels.trigger(data.channel, 'chat', {
+      chat: chatContent,
+      color: color || '#000000',
+    });
+
     return NextResponse.json({ message: 'success', req: { ...data } });
   } catch (error) {
     console.error(error);

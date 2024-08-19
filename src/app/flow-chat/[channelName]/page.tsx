@@ -98,7 +98,7 @@ export default function Page({ params }: { params: { channelName: string } }) {
       <div className="chat-log" id="chatLog">
         {chatList.map((chat) => (
           <React.Fragment key={chat.id}>
-            <p className="chat-content" style={{ color: chat.color }}>
+            <p className="chat-content">
               {chat.chat}
               <small> ({chat.time})</small>
             </p>
